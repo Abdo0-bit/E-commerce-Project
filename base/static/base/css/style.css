@@ -1,0 +1,226 @@
+/* 🟦 تحسين الـ Navbar */
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    /* تدرج ألوان */
+}
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    
+    font-size: 28px;
+    
+    font-weight: bold;
+    
+    letter-spacing: 1.2px;
+
+    color: white !important;
+    
+    transition: color 0.3s ease;
+    
+}
+.navbar .nav-link {
+    color: white !important;
+    /* لون الروابط */
+    font-weight: bold;
+    /* جعل الخط عريض */
+    transition: color 0.3s ease;
+}
+
+.brand-highlight {
+    background: linear-gradient(135deg, #b8a8ae, #d44973);
+    /* تدرج جذاب */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+    
+}
+
+.navbar .nav-link:hover {
+    color: #ffcc70 !important;
+    /* لون عند تمرير الماوس */
+}
+
+/* 🟢 تنسيق الرسائل */
+.alert {
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 🟠 تحسين شكل الأزرار */
+.btn-primary {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    /* تدرج عصري */
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    box-shadow: 0 8px 15px rgba(106, 17, 203, 0.3);
+    transform: translateY(-3px);
+    /* تأثير الرفع عند التحريك */
+}
+
+/* 🔴 تحسين مظهر الصفحة الرئيسية */
+.container {
+    max-width: 1200px;
+    padding-top: 30px;
+}
+
+/* تحسين العناوين */
+h1,
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* 📦 تحسين الكروت */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* يسمح بلف الكروت */
+    justify-content: center;
+    /* توسيط الكروت */
+    gap: 25px;
+    /* المسافة بين الكروت */
+    margin-top: 30px;
+}
+
+/* 🎨 تصميم كروت المنتجات */
+.product-card {
+    width: 320px;
+    /* تحديد عرض الكارد */
+    border-radius: 20px;
+    /* تدوير الحواف */
+    overflow: hidden;
+    /* منع تجاوز المحتوى */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: white;
+    /* خلفية الكارد */
+    transition: transform 0.4s ease;
+}
+
+/* تأثير عند تمرير الماوس */
+.product-card:hover {
+    transform: translateY(-10px);
+    /* رفع الكارد لأعلى */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    /* ظل أعمق */
+}
+
+/* 🖼️ ضبط الصور */
+.product-card .card-img-top {
+    width: 100%;
+    /* تثبيت العرض */
+    height: 300px;
+    /* تثبيت الارتفاع */
+    object-fit: cover;
+    /* تغطية متناسقة */
+    border-bottom: 2px solid #4e54c8;
+    /* خط تحت الصورة */
+}
+
+/* 📱 تحسين الصور على الأجهزة الصغيرة */
+@media (max-width: 768px) {
+    .product-card {
+        width: 100%;
+        /* جعل الكارد بعرض الشاشة */
+    }
+
+    .product-card .card-img-top {
+        height: 200px;
+        /* تصغير الصور */
+    }
+}
+
+/* 📌 تحسين النصوص */
+.product-card .card-body {
+    padding: 20px;
+    text-align: center;
+    /* توسيط المحتوى */
+}
+
+.product-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4e54c8;
+    /* لون مميز */
+}
+
+.product-card .card-text {
+    font-size: 1rem;
+    color: #555;
+    /* لون هادئ للوصف */
+    margin-bottom: 1rem;
+}
+
+/* 🛒 تحسين زر التفاصيل */
+.product-card .btn-primary {
+    margin-top: 15px;
+    font-size: 1rem;
+}
+
+/* 🔍 مربع البحث */
+.search-container {
+    display: flex;
+    justify-content: center;
+    /* توسيط البحث */
+    margin: 20px 0;
+}
+
+.search-container input {
+    width: 50%;
+    padding: 12px 20px;
+    border: 1px solid #4e54c8;
+    /* تحديد لون الحواف */
+    border-radius: 30px 0 0 30px;
+    outline: none;
+    /* إزالة الحدود */
+}
+
+.search-container button {
+    padding: 12px 25px;
+    border-radius: 0 30px 30px 0;
+}
+
+/* 🟡 تحسين تجربة الموبايل */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 22px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .search-container input {
+        width: 70%;
+    }
+}
+
+/* 🌟 Footer تحسين */
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.footer a {
+    color: #ffcc70;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}

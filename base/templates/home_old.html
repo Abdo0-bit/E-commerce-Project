@@ -1,0 +1,20 @@
+{% extends "main.html" %}
+
+{% block title %} 
+Home Page 
+{%endblock%}
+
+    {% block content %}
+    <h1>Welcome to our E-commerce Site</h1>
+    <p>Explore our wide range of products and enjoy shopping!</p>
+    {% for item in products %}
+
+    <div>
+        <img src="{{ item.picture.url }}" alt="{{ item.name }}" width="300">
+        <p>{{ item.name }} : ${{ item.price }}</p>
+        <p>{{ item.description }}</p>
+    </div>
+    <hr>
+    {% endfor %}
+    
+    {% endblock %}

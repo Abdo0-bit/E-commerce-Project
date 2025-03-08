@@ -1,0 +1,58 @@
+{%extends 'main.html'%}
+{%block title%} Checkout {%endblock%}
+{%block content%}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🛍️ Checkout</h2>
+    <div class="row">
+        <!-- ملخص الطلب -->
+        <div class="col-md-6">
+            <h4>🧾 Order Summary</h4>
+            <ul class="list-group mb-4">
+                {% for item in products_in_cart %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ item.product.name }} (x{{ item.quantity }})
+                    <span>${{ item.total_price|floatformat:2 }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <h5><strong>Total: ${{ total_price|floatformat:2 }}</strong></h5>
+        </div>
+
+        <!-- بيانات الشحن -->
+        <div class="col-md-6">
+            <h4>🚚 Shipping Information</h4>
+            <form method="post" class="p-4 border rounded bg-light shadow">
+                {% csrf_token %}
+
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label for="id_full_name" class="form-label">👤 Full Name:</label>
+                    {{ form.full_name }}
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">📧 Email:</label>
+                    {{ form.email }}
+                </div>
+
+                <!-- Address (Textarea) -->
+                <div class="mb-3">
+                    <label for="id_address" class="form-label">🏠 Address:</label>
+                    {{ form.address }}
+                </div>
+
+                <!-- Phone -->
+                <div class="mb-3">
+                    <label for="id_phone" class="form-label">📞 Phone:</label>
+                    {{ form.phone }}
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">
+                    ✅ Place Order
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

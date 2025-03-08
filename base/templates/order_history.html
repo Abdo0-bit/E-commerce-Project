@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block title %}Your Order History{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">📦 Your Order History</h2>
+
+    {% if orders %}
+    {% for order in orders %}
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+            <h5 class="card-title">Order #{{ order.id }}</h5>
+            <p class="card-text">Status: <strong>{{ order.get_status_display }}</strong></p>
+            <p class="card-text">Order Date: {{ order.created_at|date:"F d, Y - H:i" }}</p>
+            <h6>Items:</h6>
+            <ul>
+                {% for item in order.orderitem_set.all %}
+                <li>
+                    {{ item.product.name }} (x{{ item.quantity }}) - ${{ item.total_price }}
+                </li>
+                {% endfor %}
+            </ul>
+            <h5>Total: ${{ order.total_price }}</h5>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-info">You have no orders yet. 🛍️ <a href="{% url 'home' %}" class="alert-link">Start
+            Shopping!</a></div>
+    {% endif %}
+</div>
+{% endblock %}

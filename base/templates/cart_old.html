@@ -1,0 +1,25 @@
+{%extends 'main.html'%}
+
+{%block title%} Your Cart {%endblock%}
+
+{% block content %}
+<h2> Your Cart </h2>
+
+{% if product_in_cart %}
+    {%for item in product_in_cart%}
+    <p> {{item.product.name}} - $ {{item.product.price}} </p>
+    <p> Quantity: {{item.quantity}} </p>
+    <hr>
+    
+        {% if item.quantity > 0 %}
+            <form action="{%url 'delete_product' item.product.pk%}" method="post">
+            {%csrf_token%}
+            <button type="submit"> Delete Product </button>
+
+            </form>
+        {%endif%}
+    {%endfor%}
+{% else %}
+<p> You Cart is empty! </p>
+{%endif%}
+{% endblock %}
