@@ -26,7 +26,7 @@ class CartItemAdmin(admin.ModelAdmin):
     list_filter = ('cart__user',)                                 
     ordering = ('-id',)
 
-    # حساب إجمالي السعر في لوحة التحكم
+
     def total_price(self, obj):
         return obj.total_price()
     total_price.short_description = 'Total Price'

@@ -169,10 +169,8 @@ def checkout(request):
             shipping = form.save(commit=False)
             shipping.user = request.user
             shipping.save()
-
             order = Order.objects.create(user=request.user, shipping=shipping)
-
-
+            
             for item in products_in_cart:
                 if item.product.stock < item.quantity:
                     messages.error(request, f"Not enough stock for {item.product.name}")
